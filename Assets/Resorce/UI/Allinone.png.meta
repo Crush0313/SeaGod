@@ -1,0 +1,750 @@
+fileFormatVersion: 2
+guid: 49161f8bae9f53447b36e05ba0704d1b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2333924293622292184
+    second: Allinone_0
+  - first:
+      213: -9086683375811331138
+    second: Allinone_0
+  - first:
+      213: 819002274779689939
+    second: Allinone_1
+  - first:
+      213: -7305319205271232516
+    second: Allinone_2
+  - first:
+      213: -651342103270867127
+    second: Allinone_3
+  - first:
+      213: 4737317336075645690
+    second: Allinone_4
+  - first:
+      213: 5193007359199641546
+    second: Allinone_5
+  - first:
+      213: 7565786807695375139
+    second: Allinone_6
+  - first:
+      213: 5063278514276031829
+    second: Allinone_7
+  - first:
+      213: 5292970155102360627
+    second: Allinone_8
+  - first:
+      213: -8010551502533587562
+    second: Allinone_9
+  - first:
+      213: 5218751965417483762
+    second: Allinone_10
+  - first:
+      213: -4946749437630989240
+    second: Allinone_11
+  - first:
+      213: -8910264353269380426
+    second: Allinone_12
+  - first:
+      213: 7835240279886249938
+    second: Allinone_13
+  - first:
+      213: 1373320588246307587
+    second: Allinone_14
+  - first:
+      213: 5092548573710325350
+    second: Allinone_15
+  - first:
+      213: -555521957423564811
+    second: Allinone_16
+  - first:
+      213: 5861987928301773349
+    second: Allinone_17
+  - first:
+      213: -1097488982960627756
+    second: Allinone_18
+  - first:
+      213: -375268595963394957
+    second: Allinone_19
+  - first:
+      213: -6233141572223559609
+    second: Allinone_20
+  - first:
+      213: 8679027967554076143
+    second: Allinone_21
+  - first:
+      213: 4941153463455052090
+    second: Allinone_22
+  - first:
+      213: -4233077458090817939
+    second: Allinone_23
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Allinone_0
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 1684
+        width: 346
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebb715eec9d95e180800000000000000
+      internalID: -2333924293622292184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Allinone_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 810
+        width: 679
+        height: 1020
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d3fa7aca3ead5b00800000000000000
+      internalID: 819002274779689939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Allinone_2
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 1684
+        width: 346
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cff18f653ea4e9a90800000000000000
+      internalID: -7305319205271232516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Allinone_3
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 1538
+        width: 346
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94fb84bdec7f5f6f0800000000000000
+      internalID: -651342103270867127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Allinone_4
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 1392
+        width: 346
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af2b61d84055eb140800000000000000
+      internalID: 4737317336075645690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Allinone_5
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 1538
+        width: 346
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acf7511fda4411840800000000000000
+      internalID: 5193007359199641546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Allinone_6
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 1392
+        width: 346
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32bf40f24031ff860800000000000000
+      internalID: 7565786807695375139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Allinone_7
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 1131
+        width: 444
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55d5a4a7bf0644640800000000000000
+      internalID: 5063278514276031829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Allinone_8
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 1247
+        width: 420
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 334de9d0058647940800000000000000
+      internalID: 5292970155102360627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Allinone_9
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 1247
+        width: 420
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69d8384a9ddc4d090800000000000000
+      internalID: -8010551502533587562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Allinone_10
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 715
+        width: 1105
+        height: 416
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fda49d234bbc6840800000000000000
+      internalID: 5218751965417483762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Allinone_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 314
+        width: 633
+        height: 484
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84c3421789d995bb0800000000000000
+      internalID: -4946749437630989240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Allinone_12
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 296
+        width: 383
+        height: 419
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ba8d8087c1685480800000000000000
+      internalID: -8910264353269380426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Allinone_13
+      rect:
+        serializedVersion: 2
+        x: 1016
+        y: 444
+        width: 284
+        height: 271
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dfb37c858d5cbc60800000000000000
+      internalID: 7835240279886249938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Allinone_14
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 429
+        width: 286
+        height: 286
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 303d6218cc30f0310800000000000000
+      internalID: 1373320588246307587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Allinone_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 296
+        height: 296
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6661d6142fd5ca640800000000000000
+      internalID: 5092548573710325350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Allinone_16
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 0
+        width: 296
+        height: 296
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f7b6d619b36a48f0800000000000000
+      internalID: -555521957423564811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Allinone_17
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 0
+        width: 296
+        height: 296
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5222e0076f6f95150800000000000000
+      internalID: 5861987928301773349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Allinone_18
+      rect:
+        serializedVersion: 2
+        x: 1016
+        y: 0
+        width: 792
+        height: 396
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4df1ab1b59fe4c0f0800000000000000
+      internalID: -1097488982960627756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Allinone_19
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 1434
+        width: 792
+        height: 396
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3740e324337cacaf0800000000000000
+      internalID: -375268595963394957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Allinone_20
+      rect:
+        serializedVersion: 2
+        x: 2199
+        y: 0
+        width: 1
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74815e0c3ce6f79a0800000000000000
+      internalID: -6233141572223559609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Allinone_21
+      rect:
+        serializedVersion: 2
+        x: 1616
+        y: 459
+        width: 202
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fedbdb9f3f9127870800000000000000
+      internalID: 8679027967554076143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Allinone_22
+      rect:
+        serializedVersion: 2
+        x: 1616
+        y: 587
+        width: 202
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a31fde945e0829440800000000000000
+      internalID: 4941153463455052090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Allinone_23
+      rect:
+        serializedVersion: 2
+        x: 1818
+        y: 459
+        width: 126
+        height: 822
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6688cbca761145c0800000000000000
+      internalID: -4233077458090817939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Allinone_0: -2333924293622292184
+      Allinone_1: 819002274779689939
+      Allinone_10: 5218751965417483762
+      Allinone_11: -4946749437630989240
+      Allinone_12: -8910264353269380426
+      Allinone_13: 7835240279886249938
+      Allinone_14: 1373320588246307587
+      Allinone_15: 5092548573710325350
+      Allinone_16: -555521957423564811
+      Allinone_17: 5861987928301773349
+      Allinone_18: -1097488982960627756
+      Allinone_19: -375268595963394957
+      Allinone_2: -7305319205271232516
+      Allinone_20: -6233141572223559609
+      Allinone_21: 8679027967554076143
+      Allinone_22: 4941153463455052090
+      Allinone_23: -4233077458090817939
+      Allinone_3: -651342103270867127
+      Allinone_4: 4737317336075645690
+      Allinone_5: 5193007359199641546
+      Allinone_6: 7565786807695375139
+      Allinone_7: 5063278514276031829
+      Allinone_8: 5292970155102360627
+      Allinone_9: -8010551502533587562
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
