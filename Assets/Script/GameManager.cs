@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GamManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public static int Money;
     public static int[] Upgrade;

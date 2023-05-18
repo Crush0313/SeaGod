@@ -23,7 +23,7 @@ public class MovingCard : MonoBehaviour
     {
         background.alpha = 0;
 
-        box1.localPosition = new Vector2(-740, -Screen.height - 160);
+        box1.localPosition = new Vector2(-740, -1340);
         box2.localPosition = new Vector2(0, -Screen.height - 160);
         box3.localPosition = new Vector2(740, -Screen.height - 160);
         obj.material.SetFloat("_Size", 0f);
@@ -33,9 +33,9 @@ public class MovingCard : MonoBehaviour
     {
         background.LeanAlpha(0.4f, 1f);
         obj.material.SetFloat("_Size", 10f);
-        box1.LeanMoveLocalY(0, 0.8f).setEaseOutExpo().delay = 0.1f;
-        box2.LeanMoveLocalY(0, 0.8f).setEaseOutExpo().delay = 0.2f;
-        box3.LeanMoveLocalY(0, 0.8f).setEaseOutExpo().delay = 0.3f;
+        box1.LeanMoveLocalY(0f, 0.8f).setEaseOutExpo().delay = 0.1f;
+        box2.LeanMoveLocalY(0f, 0.8f).setEaseOutExpo().delay = 0.2f;
+        box3.LeanMoveLocalY(0f, 0.8f).setEaseOutExpo().delay = 0.3f;
     }
 
     public void Closed()
