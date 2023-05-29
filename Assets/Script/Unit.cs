@@ -1,44 +1,65 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.UIElements;
 
 public class Unit : MonoBehaviour 
 {
-    private IObjectPool<Unit> _ManageredPool; 
+    public IObjectPool<Unit> _ManageredPool;
 
+    //1 : 아군, -1 : 적군
+    public int isOwn;
     public static int[] sthp = {7};
 
     public int num;
 
     public int UpLv;
+
     public int Hp;
     public int cHp;
+    public int hp10;
+
     public int Dmg;
     public int Def;
-    public float Delay;
-    public float cDelay;
-    public float adelay1;
+    public float knockDef;
     public float range;
     public float speed;
     public float heal;
+
     public int dropMoney;
+
+    public float Delay;
+    public float cDelay;
+
+    public float adelay1;
+
     WaitForSeconds delay1;
 
+    public SpriteRenderer[] Parts; //피격 시 붉은 색을 칠할 자식 개체(이미지 부분)
     public GameObject RayPos; //raycast 쏘는 기준점이 되는 empty 게임오브젝트
+    public GameObject Hpbar;
+    public Color unHitColor; //255, 255, 255
+    public Color HitRed; //255, 135, 135
     RaycastHit2D rayhit;
     Animator Anim;
 
-    //1 : 아군, -1 : 적군
-    public int isOwn;
    
      void Awake()
     {
         delay1 = new WaitForSeconds(adelay1);
         //Hp = sthp[num];//아군만 스텟 가져옴******별도 스크립트
         cHp = Hp;
+        hp10 = Hp / 10;
         cDelay = Delay;//첫 타는 딜레이x
         Anim = GetComponent<Animator>();
+    }
+
+    private void OnEnable()
+    {
+        Debug.Log("이너블"); //시작시에도 반응
+        ChangedHp();
     }
 
     void Update()
@@ -64,7 +85,7 @@ public class Unit : MonoBehaviour
             {
                 Anim.SetTrigger("Atk");
                 cDelay = 0;
-                StartCoroutine(Attack(rayhit.collider.gameObject, adelay1, Dmg));//매개변수 땜시 invoke 대신 코루틴
+                StartCoroutine(Attack(rayhit.collider.gameObject, delay1, Dmg));//매개변수 땜시 invoke 대신 코루틴
             }
             else //쿨타임 아직이면
             {
@@ -73,13 +94,12 @@ public class Unit : MonoBehaviour
         }
         else // 감지 못함 : 아무도 앞에 없음 = 이동
         {
-            //Debug.Log("null 임");
-            transform.Translate(isOwn * speed * Time.deltaTime, 0, 0); //방향 * 속도 * 렉 처리
             Anim.SetBool("isMove", true); //이동 상태
+            transform.Translate(isOwn * speed * Time.deltaTime, 0, 0); //방향 * 속도 * 렉 처리
         }
     }
 
-    IEnumerator Attack(GameObject obj, float aniDelay, int dmg)
+    IEnumerator Attack(GameObject obj, WaitForSeconds aniDelay, int dmg)
     {
         yield return aniDelay; //애니메이션의 피격 순간과 실제 피격 시간을 맞춤
         obj.GetComponent<Unit>().damaged(dmg);
@@ -89,11 +109,20 @@ public class Unit : MonoBehaviour
     {
         if (cHp <= dmg) //남은 체력보다 대미지가 큼 = death
         {
-            DestroyUnit();
+            Invoke("DestroyUnit", 5f);
         }
         else
         {
             cHp -= dmg;
+            if (cHp <= hp10)
+            {//체력 10% 이하 : 빈사상태
+                Knockback(1f);
+                Debug.Log("빈사");
+            }
+            else //상시 넉백
+                Knockback(0.2f);
+            ChangedHp();
+            HitEffect();
         }
     }
     public void SetManageredPool(IObjectPool<Unit> pool) //
@@ -105,5 +134,32 @@ public class Unit : MonoBehaviour
         Debug.Log("쥬금");
         _ManageredPool.Release(this); //근데 오류남
     }
+    public void Knockback(float knock)
+    {
+        if (knock >= knockDef)
+        {
+            transform.Translate(-1f * isOwn * knock, 0f, 0f);
+        }
+    }
 
+    public void ChangedHp()
+    {
+        Hpbar.transform.LeanScaleX((float)cHp / (float)Hp, 0.1f);
+
+    }
+    public void HitEffect()
+    {
+        for (int i = 0; i < Parts.Length; i++)
+        {
+            Parts[i].color = HitRed;
+        }
+        Invoke("ReColor", 0.2f);
+    }
+    public void ReColor()
+    {
+        for (int i = 0; i < Parts.Length; i++)
+        {
+            Parts[i].color = Color.white;
+        }
+    }
 }

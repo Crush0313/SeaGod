@@ -7,7 +7,7 @@ using UnityEngine.Pool;
 public class summon : MonoBehaviour
 {
     public GameObject _UnitPrefab;
-    private IObjectPool<Unit> _Pool;
+    public IObjectPool<Unit> _Pool;
 
     //소환버튼
     public GameObject spawnPoint;
@@ -91,9 +91,12 @@ public class summon : MonoBehaviour
             cMana -= needMana;
             cSkillTime[0] = SkillTime[0];
             var unit = _Pool.Get();
+
             unit.transform.position = spawnPoint.transform.position;
             isHide[0] = true; //활성화 상태로
             HideSkillButtons[0].raycastTarget = false; //버튼을 활성화 상태로
+            Manabar.fillAmount = (float)cMana / (float)Mana;
+            ManaText.text = $"{cMana} / {Mana}";
         }
     }
     private Unit CreateUnit()
