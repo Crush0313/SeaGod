@@ -9,7 +9,7 @@ public class Unit : MonoBehaviour
 {
     public IObjectPool<Unit> _ManageredPool;
 
-    //1 : 아군, -1 : 적군
+    //1 : 아군, -1 : 적군, 0: 기지
     public int isOwn;
     public static int[] sthp = {7};
 
@@ -46,58 +46,28 @@ public class Unit : MonoBehaviour
     Animator Anim;
 
    
-     void Awake()
+     void Awake() //최초 생성
     {
         delay1 = new WaitForSeconds(adelay1);
-        //Hp = sthp[num];//아군만 스텟 가져옴******별도 스크립트
+        Anim = GetComponent<Animator>();
+        if (isOwn == 1) //아군
+        {
+            //Hp = sthp[num];//아군만 스텟 가져옴******별도 스크립트
+        }
+        if (isOwn != 0)//기지가 아님
+        {
+            StartCoroutine(Move()); //disable 후 활성화 되었을 때에도 그런가
+        }
+    }
+
+    private void OnEnable()//시작시에도 반응
+    {
         cHp = Hp;
         hp10 = Hp / 10;
         cDelay = Delay;//첫 타는 딜레이x
-        Anim = GetComponent<Animator>();
-    }
-
-    private void OnEnable()
-    {
-        Debug.Log("이너블"); //시작시에도 반응
         ChangedHp();
     }
 
-    void Update()
-    {
-
-        Debug.DrawRay(RayPos.transform.position, new Vector3(isOwn, 0, 0), new Color(0, 1, 0)); //레이 시각화(에디터에서만)
-
-        if (isOwn == 1) //아군 : 적 레이어만 감지 ->
-        {
-            rayhit = Physics2D.Raycast(RayPos.transform.position, Vector2.right, range, LayerMask.GetMask("enermy"));
-        }
-
-        else if(isOwn == -1) //적군 : 아군 레이어만 감지 <-
-        {
-            rayhit = Physics2D.Raycast(RayPos.transform.position, Vector2.left, range, LayerMask.GetMask("team"));
-        }
-
-        if (rayhit.collider !=null) //감지 했음
-        {
-            //Debug.Log("null 아님");
-            Anim.SetBool("isMove", false); //비이동 상태
-            if (cDelay >= Delay)//쿨타임 참
-            {
-                Anim.SetTrigger("Atk");
-                cDelay = 0;
-                StartCoroutine(Attack(rayhit.collider.gameObject, delay1, Dmg));//매개변수 땜시 invoke 대신 코루틴
-            }
-            else //쿨타임 아직이면
-            {
-                cDelay += Time.deltaTime; //시간조각 더하기
-            }
-        }
-        else // 감지 못함 : 아무도 앞에 없음 = 이동
-        {
-            Anim.SetBool("isMove", true); //이동 상태
-            transform.Translate(isOwn * speed * Time.deltaTime, 0, 0); //방향 * 속도 * 렉 처리
-        }
-    }
 
     IEnumerator Attack(GameObject obj, WaitForSeconds aniDelay, int dmg)
     {
@@ -160,6 +130,46 @@ public class Unit : MonoBehaviour
         for (int i = 0; i < Parts.Length; i++)
         {
             Parts[i].color = Color.white;
+        }
+    }
+    IEnumerator Move() //서치 앤드 디스트로이...
+    {
+        while (true)
+        {
+            //yield return null;
+            yield return null;
+            Debug.DrawRay(RayPos.transform.position, new Vector3(isOwn, 0, 0), new Color(0, 1, 0)); //레이 시각화(에디터에서만)
+
+            if (isOwn == 1) //아군 : 적 레이어만 감지 ->
+            {
+                rayhit = Physics2D.Raycast(RayPos.transform.position, Vector2.right, range, LayerMask.GetMask("enermy"));
+            }
+
+            else if (isOwn == -1) //적군 : 아군 레이어만 감지 <-
+            {
+                rayhit = Physics2D.Raycast(RayPos.transform.position, Vector2.left, range, LayerMask.GetMask("team"));
+            }
+
+            if (rayhit.collider != null) //감지 했음
+            {
+                //Debug.Log("null 아님");
+                Anim.SetBool("isMove", false); //비이동 상태
+                if (cDelay >= Delay)//쿨타임 참
+                {
+                    Anim.SetTrigger("Atk");
+                    cDelay = 0;
+                    StartCoroutine(Attack(rayhit.collider.gameObject, delay1, Dmg));//매개변수 땜시 invoke 대신 코루틴
+                }
+                else //쿨타임 아직이면
+                {
+                    cDelay += Time.deltaTime; //시간조각 더하기
+                }
+            }
+            else // 감지 못함 : 아무도 앞에 없음 = 이동
+            {
+                Anim.SetBool("isMove", true); //이동 상태
+                transform.Translate(isOwn * speed * Time.deltaTime, 0, 0); //방향 * 속도 * 렉 처리
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ public class summon : MonoBehaviour
     public IObjectPool<Unit> _Pool;
 
     //소환버튼
-    public GameObject spawnPoint;
+    public GameObject[] spawnPoint;
     public Image[] HideSkillButtons; //숨길 소환 버튼
     public Image[] hideSkill; //소환 버튼 가림막
     public bool[] isHide = { false };
@@ -25,6 +25,14 @@ public class summon : MonoBehaviour
     public float ManaCool; //마나 회복 주기
     WaitForSeconds manaCycle; //마나 회복 주기
 
+    //public int eMana; //최대 마나
+    //public int ecMana;
+    //public float eManaCool; //마나 회복 주기
+    //WaitForSeconds emanaCycle; //마나 회복 주기
+
+    public int patternNum;
+    public int[] enemyCost = { 5, 7, 9 };
+
     private void Awake()
     {
         _Pool = new ObjectPool<Unit>(CreateUnit, onGetUnit, OnReleaseUnit, OnDestroyUnit, maxSize:20);
@@ -32,13 +40,15 @@ public class summon : MonoBehaviour
 
     void Start()
     {
-        manaCycle = new WaitForSeconds(ManaCool); //매번 new로 만드는 것보다, 한번 만드는 것이 자원소모가 적음
+        manaCycle = new WaitForSeconds(ManaCool); //매번 new로 만드는 것보다, 한번 만드는 것이 자원소모가 
+        //emanaCycle = new WaitForSeconds(eManaCool);
         for (int i = 0; i < HideSkillButtons.Length; i++)
         {
             HideSkillButtons[i].raycastTarget = false; //모든 버튼에 대해 비활성 상태로 만듦
             isHide[i] = true;
         }
         StartCoroutine(ManaGen()); //마나 회복 시작
+        //StartCoroutine(eManaGen()); //마나 회복 시작
     }
     void Update()
     {
@@ -83,7 +93,32 @@ public class summon : MonoBehaviour
             }
         }
     }
-
+    //IEnumerator eManaGen() //적 소환력 회복
+    //{
+    //    while (true)
+    //    {
+    //        yield return emanaCycle; //마나 사이클마다 회복
+    //        if (ecMana < eMana) //꽉 찰 때까지
+    //        {
+    //            ecMana += 1; //1씩 회복
+    //        }
+    //        chkSpawn();
+    //    }
+    ////}
+    //void spawnPattern()
+    //{
+    //    patternNum = Random.Range(0, 3);
+    //}
+    //void chkSpawn()
+    //{
+    //    if (ecMana > enemyCost[patternNum])
+    //    {
+    //        ecMana -= enemyCost[patternNum];
+    //        var unit = _Pool.Get();
+    //        unit.transform.position = spawnPoint[1].transform.position;
+    //        spawnPattern(); //패턴 변경
+    //    }
+    //}
     public void Summon1(int needMana)
     {
         if (cMana >= needMana)
@@ -92,7 +127,7 @@ public class summon : MonoBehaviour
             cSkillTime[0] = SkillTime[0];
             var unit = _Pool.Get();
 
-            unit.transform.position = spawnPoint.transform.position;
+            unit.transform.position = spawnPoint[0].transform.position;
             isHide[0] = true; //활성화 상태로
             HideSkillButtons[0].raycastTarget = false; //버튼을 활성화 상태로
             Manabar.fillAmount = (float)cMana / (float)Mana;

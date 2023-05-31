@@ -6,7 +6,11 @@ public class GameManager : MonoBehaviour
 {
     public static int Money;
     public static int[] Upgrade;
+    public GameObject Darker;
+    public bool isPause = false;
+    public bool isFast = false;
 
+   
     void Start()
     {
         //Upgrade[9] = {1,0,0,0,0,0,0,0,0};
@@ -43,5 +47,33 @@ public class GameManager : MonoBehaviour
             Upgrade[i] = PlayerPrefs.GetInt("Up0" + i);
         }
 
+    }
+    public void TheWorld()
+    {
+        if (isPause) //멈춰있음 - 이제 되돌림
+        {
+            Time.timeScale = 1;
+            isPause = false;
+            Darker.SetActive(false);
+        }
+        else //안 멈춘 상태 - 이제 멈춤
+        {
+            Time.timeScale = 0;
+            isPause = true;
+            Darker.SetActive(true);
+        }
+    }
+    public void TheKorean()
+    {
+        if (isFast) //빠름 - 이제 되돌림
+        {
+            Time.timeScale = 1;
+            isFast = false;
+        }
+        else //안 빠른 상태 - 이제 빠름
+        {
+            Time.timeScale = 2;
+            isFast = true;
+        }
     }
 }
