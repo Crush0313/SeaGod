@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Pool;
+using Redcode.Pools;
 
 public class summon : MonoBehaviour
 {
-    public GameObject _UnitPrefab;
-    public IObjectPool<Unit> _Pool;
+    public static summon instance;
+    PoolManager poolManager;
 
     //소환버튼
     public GameObject[] spawnPoint;
@@ -35,7 +36,7 @@ public class summon : MonoBehaviour
 
     private void Awake()
     {
-        _Pool = new ObjectPool<Unit>(CreateUnit, onGetUnit, OnReleaseUnit, OnDestroyUnit, maxSize:20);
+        poolManager = GetComponent<PoolManager>();
     }
 
     void Start()
@@ -125,33 +126,24 @@ public class summon : MonoBehaviour
         {
             cMana -= needMana;
             cSkillTime[0] = SkillTime[0];
-            var unit = _Pool.Get();
 
+            //var unit = _Pool.Get();
+            //
+            //isHide[0] = true; //활성화 상태로
+
+            Unit unit = poolManager.GetFromPool<Unit>(0);
             unit.transform.position = spawnPoint[0].transform.position;
-            isHide[0] = true; //활성화 상태로
+
             HideSkillButtons[0].raycastTarget = false; //버튼을 활성화 상태로
             Manabar.fillAmount = (float)cMana / (float)Mana;
             ManaText.text = $"{cMana} / {Mana}";
         }
     }
-    private Unit CreateUnit()
+    public void ReturnPool(Unit clone)
     {
-        Unit unit = Instantiate(_UnitPrefab).GetComponent<Unit>();
-        unit.SetManageredPool(_Pool);
-        return unit;
+        poolManager.TakeToPool<Unit>(clone.idName, clone);//회수
     }
-    private void onGetUnit(Unit unit) //활성화
-    {
-        unit.gameObject.SetActive(true);
-    }
-    private void OnReleaseUnit(Unit unit) //비활성화
-    {
-        unit.gameObject.SetActive(false);
-    }
-    private void OnDestroyUnit(Unit unit) //삭제
-    {
-        Destroy(unit.gameObject);
-    }
-        
+
+
 }
 

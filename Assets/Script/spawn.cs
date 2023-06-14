@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Pool;
+using Redcode.Pools;
 
 public class spawn : MonoBehaviour
-{
+{/*
     public GameObject _UnitPrefab;
     public IObjectPool<Unit> _Pool;
 
@@ -22,7 +23,7 @@ public class spawn : MonoBehaviour
 
     private void Awake()
     {
-        _Pool = new ObjectPool<Unit>(CreateUnit, onGetUnit, OnReleaseUnit, OnDestroyUnit, maxSize:20);
+
     }
 
     void Start()
@@ -52,29 +53,14 @@ public class spawn : MonoBehaviour
         if (ecMana > enemyCost[1])
         {
             ecMana -= enemyCost[1];
-            var unit = _Pool.Get();
-            unit.transform.position = spawnPoint.transform.position;
+
+            Unit unit = poolManager.GetFromPool<Unit>(0);
+            unit.transform.position = spawnPoint[0].transform.position;
             //spawnPattern(); //패턴 변경
         }
     }
-    private Unit CreateUnit()
-    {
-        Unit unit = Instantiate(_UnitPrefab).GetComponent<Unit>();
-        unit.SetManageredPool(_Pool);
-        return unit;
-    }
-    private void onGetUnit(Unit unit) //활성화
-    {
-        unit.gameObject.SetActive(true);
-    }
-    private void OnReleaseUnit(Unit unit) //비활성화
-    {
-        unit.gameObject.SetActive(false);
-    }
-    private void OnDestroyUnit(Unit unit) //삭제
-    {
-        Destroy(unit.gameObject);
-    }
+    */
+
         
 }
 

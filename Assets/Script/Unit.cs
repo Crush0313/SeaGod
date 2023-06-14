@@ -4,10 +4,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.UIElements;
+using Redcode.Pools;
 
-public class Unit : MonoBehaviour 
+public class Unit : MonoBehaviour, IPoolObject
 {
-    public IObjectPool<Unit> _ManageredPool;
+    public string idName;
 
     //1 : 아군, -1 : 적군, 0: 기지
     public int isOwn;
@@ -50,6 +51,7 @@ public class Unit : MonoBehaviour
     {
         delay1 = new WaitForSeconds(adelay1);
         Anim = GetComponent<Animator>();
+
         if (isOwn == 1) //아군
         {
             //Hp = sthp[num];//아군만 스텟 가져옴******별도 스크립트
@@ -59,15 +61,6 @@ public class Unit : MonoBehaviour
             StartCoroutine(Move()); //disable 후 활성화 되었을 때에도 그런가
         }
     }
-
-    private void OnEnable()//시작시에도 반응
-    {
-        cHp = Hp;
-        hp10 = Hp / 10;
-        cDelay = Delay;//첫 타는 딜레이x
-        ChangedHp();
-    }
-
 
     IEnumerator Attack(GameObject obj, WaitForSeconds aniDelay, int dmg)
     {
@@ -91,18 +84,10 @@ public class Unit : MonoBehaviour
             }
             else //상시 넉백
                 Knockback(0.2f);
+
             ChangedHp();
             HitEffect();
         }
-    }
-    public void SetManageredPool(IObjectPool<Unit> pool) //
-    {
-        _ManageredPool = pool;
-    }
-    public void DestroyUnit() //사망 = 해제
-    {
-        Debug.Log("쥬금");
-        _ManageredPool.Release(this); //근데 오류남
     }
     public void Knockback(float knock)
     {
@@ -112,6 +97,13 @@ public class Unit : MonoBehaviour
         }
     }
 
+    public void DestroyUnit()
+    {
+        if (isOwn == 0)
+            Destroy(this);
+        else
+            summon.instance.ReturnPool(this);
+    }
     public void ChangedHp()
     {
         Hpbar.transform.LeanScaleX((float)cHp / (float)Hp, 0.1f);
@@ -171,5 +163,19 @@ public class Unit : MonoBehaviour
                 transform.Translate(isOwn * speed * Time.deltaTime, 0, 0); //방향 * 속도 * 렉 처리
             }
         }
+    }
+
+    void IPoolObject.OnCreatedInPool()
+    {
+        Debug.Log("생성");
+    }
+
+    void IPoolObject.OnGettingFromPool()
+    {
+        cHp = Hp;
+        hp10 = Hp / 10;
+        cDelay = Delay;//첫 타는 딜레이x
+        ChangedHp();
+        Debug.Log("히히");
     }
 }

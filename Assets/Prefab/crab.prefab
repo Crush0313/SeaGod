@@ -301,6 +301,7 @@ GameObject:
   - component: {fileID: 2061688056128297489}
   - component: {fileID: 2061688056128297495}
   - component: {fileID: 2061688056128297490}
+  - component: {fileID: -9203018272511228020}
   m_Layer: 7
   m_Name: crab
   m_TagString: Untagged
@@ -419,6 +420,17 @@ MonoBehaviour:
   Hpbar: {fileID: 2061688056292889472}
   unHitColor: {r: 1, g: 1, b: 1, a: 1}
   HitRed: {r: 1, g: 0.08327953, b: 0, a: 1}
+--- !u!210 &-9203018272511228020
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980274879871421869}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &2061688056292889472
 GameObject:
   m_ObjectHideFlags: 0
