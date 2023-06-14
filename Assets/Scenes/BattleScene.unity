@@ -2496,12 +2496,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1076778425}
         m_TargetAssemblyTypeName: summon, Assembly-CSharp
-        m_MethodName: Summon1
+        m_MethodName: SummonUnit
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2689,6 +2689,13 @@ MonoBehaviour:
   Mana: 21
   cMana: 0
   ManaCool: 2
+  cManaCool: 0
+  needMana: 04000000
+  creatTime: 050000000a000000
+  SizeUpChance: 10
+  enemyChance: 00000000
+  enemyNum: 00000000
+  cCreatTime: 0
   patternNum: 0
   enemyCost: 050000000700000009000000
 --- !u!4 &1076778426

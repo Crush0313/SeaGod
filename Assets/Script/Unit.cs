@@ -9,7 +9,6 @@ using Redcode.Pools;
 public class Unit : MonoBehaviour, IPoolObject
 {
     public string idName;
-
     //1 : 아군, -1 : 적군, 0: 기지
     public int isOwn;
     public static int[] sthp = {7};
@@ -18,10 +17,12 @@ public class Unit : MonoBehaviour, IPoolObject
 
     public int UpLv;
 
+    int delHp;
     public int Hp;
     public int cHp;
     public int hp10;
 
+    int delDmg;
     public int Dmg;
     public int Def;
     public float knockDef;
@@ -36,6 +37,8 @@ public class Unit : MonoBehaviour, IPoolObject
 
     public float adelay1;
 
+    public bool isBig = false;
+
     WaitForSeconds delay1;
 
     public SpriteRenderer[] Parts; //피격 시 붉은 색을 칠할 자식 개체(이미지 부분)
@@ -47,18 +50,29 @@ public class Unit : MonoBehaviour, IPoolObject
     Animator Anim;
 
    
-     void Awake() //최초 생성
+     void Awake() //최초 생성, 두번째는 x
     {
+        Debug.Log("내가 와따");
         delay1 = new WaitForSeconds(adelay1);
         Anim = GetComponent<Animator>();
 
-        if (isOwn == 1) //아군
-        {
-            //Hp = sthp[num];//아군만 스텟 가져옴******별도 스크립트
-        }
         if (isOwn != 0)//기지가 아님
         {
             StartCoroutine(Move()); //disable 후 활성화 되었을 때에도 그런가
+            if (isOwn == 1) //아군
+            {
+                //Hp = sthp[num];//아군만 스텟 가져옴******별도 스크립트
+            }
+            int R = Random.Range(0, 101);
+            if (R <= 10) //사이즈업
+            {
+                transform.localScale = new Vector3(1.1f, 1.1f, 1);
+                delHp = (int)(Hp * 0.3f);//체력 변화량
+                Hp += delHp;
+                delDmg = (int)(Dmg * 0.3f);//공격력 변화량
+                Dmg += delDmg;
+                isBig = true;
+            }
         }
     }
 
@@ -99,10 +113,19 @@ public class Unit : MonoBehaviour, IPoolObject
 
     public void DestroyUnit()
     {
-        if (isOwn == 0)
+        if (isOwn == 0) //풀로 안 만든 기지 예외처리
             Destroy(this);
         else
-            summon.instance.ReturnPool(this);
+        {
+            if (isBig) //원상복구
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                Hp += delHp;
+                Dmg += delDmg;
+                isBig = false;
+            }
+            summon.instance.ReturnPool(this); //반환
+        }
     }
     public void ChangedHp()
     {
@@ -121,7 +144,7 @@ public class Unit : MonoBehaviour, IPoolObject
     {
         for (int i = 0; i < Parts.Length; i++)
         {
-            Parts[i].color = Color.white;
+            Parts[i].color = unHitColor;
         }
     }
     IEnumerator Move() //서치 앤드 디스트로이...
@@ -165,7 +188,7 @@ public class Unit : MonoBehaviour, IPoolObject
         }
     }
 
-    void IPoolObject.OnCreatedInPool()
+    void IPoolObject.OnCreatedInPool() //두번째는 x
     {
         Debug.Log("생성");
     }
